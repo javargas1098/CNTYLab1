@@ -1,4 +1,4 @@
-package Operations;
+package operations;
 
 public class Complex {
 	double x;
@@ -22,11 +22,11 @@ public class Complex {
 		this.x = x;
 	}
 
-	public double getComplejo() {
+	public double getImaginario() {
 		return y;
 	}
 
-	public void setComplejo(double y) {
+	public void setImaginario(double y) {
 		this.y = y;
 	}
 
@@ -35,34 +35,12 @@ public class Complex {
 		this.y = y;
 		this.setModule();
 		this.setFase();
-		this.setCartesiantoPolar();
 
 	}
-
-	public Complex setPolartoCartesian(double radius, double degrees) {
-		degrees = degrees * (Math.PI/180);
-		x=radius*Math.cos(degrees);
-		y =radius*Math.sin(degrees);
-		return new Complex(x, y);
-		// TODO Auto-generated method stub
-
-	}
-
-	public double[] setCartesiantoPolar() {
-		double[] cartesian = new double[2];
-		double radius = setModule();
-		double degrees = Math.toDegrees(setFase());
-		cartesian[0] = radius;
-		cartesian[1] = degrees;
-		return cartesian;
-		// TODO Auto-generated method stub
-
-	}
-
 	/**
 	 * fase de un copmlejo
 	 */
-	private double setFase() {
+	public double setFase() {
 		// TODO Auto-generated method stub
 		return this.fase = Math.atan(y / x);
 
@@ -124,12 +102,17 @@ public class Complex {
 	 */
 
 	public Complex divComplex(Complex divComplex1, Complex divComplex2) {
-		double denominador = (divComplex1.y * divComplex2.x - divComplex1.x * divComplex2.y)
-				/ (Math.pow(divComplex2.x, 2) + Math.pow(divComplex2.y, 2));
-		double numerador = (divComplex1.x * divComplex2.x + divComplex1.y * divComplex2.y)
-				/ (Math.pow(divComplex2.x, 2) + Math.pow(divComplex2.y, 2));
+		Complex numerador = divComplex1.mulComplex(conComplex(divComplex2));
+		Complex denominador = divComplex2.mulComplex(conComplex(divComplex2));
+		double real = numerador.x / denominador.x;
+		double imaginario;
+		if (denominador.y != 0) {
+			imaginario = numerador.y / denominador.y;
+		} else {
+			imaginario = numerador.y / denominador.x;
+		}
 
-		return new Complex(numerador, denominador);
+		return new Complex(real, imaginario);
 
 	}
 
@@ -138,6 +121,30 @@ public class Complex {
 	 */
 	public Complex conComplex(Complex conComplex) {
 		return new Complex(conComplex.x, -conComplex.y);
+
+	}
+	/**
+	 * Forma cartesiana de de un complejo 
+	 */
+	public Complex setPolartoCartesian(double radius, double degrees) {
+		degrees = degrees * (Math.PI / 180);
+		x = radius * Math.cos(degrees);
+		y = radius * Math.sin(degrees);
+		return new Complex(x, y);
+		// TODO Auto-generated method stub
+
+	}
+	/**
+	 * Forma polar de de un complejo 
+	 */
+
+	public Complex setCartesiantoPolar(Complex carteComplex) {
+		double radius = carteComplex.setModule();
+		double degrees = Math.toDegrees(carteComplex.setFase());
+		System.out.println(radius);
+
+		return new Complex(radius, degrees);
+		// TODO Auto-generated method stub
 
 	}
 
