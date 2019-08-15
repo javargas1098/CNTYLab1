@@ -141,7 +141,7 @@ public class Complex {
 	public Complex setCartesiantoPolar(Complex carteComplex) {
 		double radius = carteComplex.setModule();
 		double degrees = Math.toDegrees(carteComplex.setFase());
-		System.out.println(radius);
+		//System.out.println(radius);
 
 		return new Complex(radius, degrees);
 		// TODO Auto-generated method stub

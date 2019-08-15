@@ -12,11 +12,10 @@ public class CalculatorTest {
 		Complex c1 = new Complex(4, 3);
 		Complex c2 = new Complex(3, -1);
 		Complex c3 = c1.sumComplex(c2);
-		// System.out.println(c3);
+		 //System.out.println(c3);
 
 		// Respuesta
-		assertEquals(7, c3.getReal());
-		assertEquals(2, c3.getImaginario());
+		assertEquals("7.0 + 2.0i",c3.toString());
 	}
 
 	@Test
@@ -29,8 +28,8 @@ public class CalculatorTest {
 		// System.out.println(c3);
 
 		// Respuesta
-		assertEquals(1, c3.getReal());
-		assertEquals(4, c3.getImaginario());
+		assertEquals("1.0 + 4.0i",c3.toString());
+
 	}
 
 	@Test
@@ -43,8 +42,7 @@ public class CalculatorTest {
 		//System.out.println(c3);
 
 		// Respuesta
-		assertEquals(15, c3.getReal());
-		assertEquals(5, c3.getImaginario());
+		assertEquals("15.0 + 5.0i",c3.toString());
 	}
 
 	@Test
@@ -57,8 +55,8 @@ public class CalculatorTest {
 //		System.out.println(c3);
 
 		// Respuesta 
-		assertEquals(0.9, c3.getReal());
-		assertEquals(1.3, c3.getImaginario());
+		assertEquals("0.9 + 1.3i",c3.toString());
+
 	}
 
 	@Test
@@ -83,8 +81,7 @@ public class CalculatorTest {
 		//System.out.println(c3);
 
 		// Respuesta 
-		assertEquals(4, c3.getReal());
-		assertEquals(-3, c3.getImaginario());
+		assertEquals("4.0 + -3.0i",c3.toString());
 	}
 
 
@@ -98,8 +95,8 @@ public class CalculatorTest {
 		//System.out.println(c2);
 
 		// Respuesta 
-		assertEquals(4, c2.getReal());
-		assertEquals(3, c2.getImaginario());
+		assertEquals("4.0 + 3.0i",c2.toString());
+
 	}
 
 	@Test
@@ -112,8 +109,8 @@ public class CalculatorTest {
 		//System.out.println(c3);
 
 		// Respuesta 
-		assertEquals(5.0, c3.getReal());
-		assertEquals(36.86989764584402, c3.getImaginario());
+		assertEquals("5.0 + 36.86989764584402i",c3.toString());
+
 	}
 	@Test
 	void testPhase() {
