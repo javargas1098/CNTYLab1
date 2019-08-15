@@ -2,7 +2,7 @@ package test;
 
 import java.util.Arrays;
 
-import operations.Complex;
+import Operations.Complex;
 
 public class pruebas {
 	public static void main(String[] args) {
