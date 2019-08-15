@@ -1,4 +1,4 @@
-package operations;
+package Operations;
 
 public class Complex {
 	double x;
