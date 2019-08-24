@@ -176,4 +176,15 @@ public class Complex {
 
 	}
 
+	public boolean equalComplex(Complex equComplex) {
+		// TODO Auto-generated method stub
+
+		if(this.x==equComplex.x && this.y==equComplex.y){
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
 }
