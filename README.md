@@ -22,13 +22,9 @@ Solo de debe descargar el proyecto de github
 * [Java](https://www.java.com/es/) - Lenguaje de programación
 
 
-
-
 ## Authors
 
-
 * **Javier Vargas** - *ECI*
-* 
 ## License
 
 Este proyecto está licenciado bajo GNU  License v3.0 - ver [LICENSE](LICENSE) para más detalles.
