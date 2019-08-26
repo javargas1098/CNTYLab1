@@ -1,10 +1,34 @@
-# Calculator Complex 
+
+# Calculator Complex
+
+## Getting Started
+En este proyecto desarrollado en Java tiene como funcion el resolver  distintas operaciones con números complejos y a su vez la interacción de estos en distintos ambientes como lo son matrices y vectores.
+### Prerequisites
+
+Solo necesita tener instalado Java en su computadora, 
+Descargar las librería junit para poder correr las pruebas.
 
 
-En este proyecto desarrollado en Java tiene como funcion el calcular la Suma, Resta Multiplicaion, Division , Modulo, Conjugado, Conversión entre representaciones polar y cartesiano y Retornar la fase de un número complejo 
+### Installing
+Solo de debe descargar el proyecto de github
 
-Recuerde añadir al proyecto la libreria de JUnit.
-## Test
+## Running the tests
 
-Para realizar las pruebas del proyecto descarguelo e importelo en su IDE, luego ejecute la clase CalculatorTest, donde ya ahi casos de prueba definidos.
+ para realizar las pruebas del proyecto descarguelo e importelo en su IDE, luego ejecute las clases que se encuentran en el paquete TEST donde ya ahi casos definidos.
 
+
+## Built With
+
+* [Java](https://www.java.com/es/) - Lenguaje de programación
+
+
+
+
+## Authors
+
+
+* **Javier Vargas** - *ECI*
+* 
+## License
+
+Este proyecto está licenciado bajo GNU  License v3.0 - ver [LICENSE](LICENSE) para más detalles.
