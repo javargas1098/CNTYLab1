@@ -36,13 +36,13 @@ public class pruebas {
 			mat2.addComplex(1, 1, c10);
 
 			
-			System.out.println(mat1.toString());
-			System.out.println(mat2.toString());
+			//System.out.println(mat1.toString());
+			//System.out.println(mat2.toString());
 		
 		
 		//System.out.println(c4.setModule());
 		//System.out.println(c3.setPolartoCartesian(6.4, 51).toString());
-		System.out.println(MatrixCalculator.sumMatrix(mat1, mat2));
+		System.out.println(MatrixCalculator.tenMatriz(mat1,mat2).toString());
 		//System.out.println(c1.divComplex(c2).toString());
 		//System.out.println(c1.mulComplex(c2).toString());
 	}

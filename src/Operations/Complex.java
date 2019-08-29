@@ -148,7 +148,12 @@ public class Complex {
 	 * Conjugado de un complejo
 	 */
 	public Complex conComplex(Complex conComplex) {
-		return new Complex(conComplex.x, -conComplex.y);
+		if(conComplex.y==0) {		
+			return new Complex(conComplex.x, conComplex.y);
+		}else {
+			return new Complex(conComplex.x, -conComplex.y);
+		}
+		
 
 	}
 	/**

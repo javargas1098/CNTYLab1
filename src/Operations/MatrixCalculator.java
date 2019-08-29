@@ -28,7 +28,7 @@ public class MatrixCalculator {
 		MatrizComplex mathfinal = new MatrizComplex(mat1.getFilas(), mat1.getColumnas());
 		Complex rtaComplex;
 		for (int i = 0; i < mat1.getFilas(); i++) {
-			for (int j = 0; j <= mat1.getColumnas() ; j++) {
+			for (int j = 0; j < mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
 				rtaComplex = mat1.getPosition(i, j).mulComplex(new Complex(-1, 0));
 				mathfinal.addComplex(i, j, rtaComplex);
 
@@ -42,7 +42,7 @@ public class MatrixCalculator {
 		MatrizComplex mathfinal = new MatrizComplex(mat1.getFilas(), mat1.getColumnas());
 		Complex rtaComplex;
 		for (int i = 0; i < mat1.getFilas(); i++) {
-			for (int j = 0; j <= mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
+			for (int j = 0; j < mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
 				rtaComplex = mat1.getPosition(i, j).mulComplex(c);
 				mathfinal.addComplex(i, j, rtaComplex);
 
@@ -56,7 +56,7 @@ public class MatrixCalculator {
 		MatrizComplex matfinal = new MatrizComplex(mat1.getFilas(), mat1.getColumnas());
 		Complex rtaComplex;
 		for (int i = 0; i < mat1.getFilas(); i++) {
-			for (int j = 0; j <= mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
+			for (int j = 0; j < mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
 				rtaComplex = mat1.getPosition(i, j);
 				matfinal.addComplex(j, i, rtaComplex);
 			}
@@ -70,9 +70,9 @@ public class MatrixCalculator {
 		Complex rtaComplex;
 		Complex con = new Complex(0, 0);
 		for (int i = 0; i < mat1.getFilas(); i++) {
-			for (int j = 0; j <= mat1.getColumnas(); j++) {
+			for (int j = 0; j < mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
 				rtaComplex = con.conComplex(mat1.getPosition(i, j));
-				matfinal.addComplex(j, i, rtaComplex);
+				matfinal.addComplex(i, j, rtaComplex);
 			}
 		}
 		return matfinal;
@@ -84,7 +84,7 @@ public class MatrixCalculator {
 
 	}
 
-	public static MatrizComplex MulMatriz(MatrizComplex mat1, MatrizComplex mat2) {
+	public static MatrizComplex mulMatriz(MatrizComplex mat1, MatrizComplex mat2) {
 		if (mat1.getColumnas() == mat2.getFilas()) {
 			MatrizComplex matfinal = new MatrizComplex(mat1.getFilas(), mat2.getColumnas());
 			for (int i = 0; i < mat1.getFilas(); i++) {
@@ -105,11 +105,11 @@ public class MatrixCalculator {
 		}
 	}
 
-	public static double NorMatriz(MatrizComplex mat1) {
+	public static double norMatriz(MatrizComplex mat1) {
 		double normaMayor = 0;
 		for (int i = 0; i < mat1.getFilas(); i++) {
 			double normaActual = 0;
-			for (int j = 0; j <= mat1.getColumnas(); j++) {
+			for (int j = 0; j < mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
 				normaActual = +mat1.getPosition(i, j).setModule();
 			}
 			if (normaActual > normaMayor) {
@@ -124,7 +124,7 @@ public class MatrixCalculator {
 		if (mat1.getFilas() == mat2.getFilas() && mat1.getColumnas() == mat2.getColumnas()) {
 			MatrizComplex rtaComplex = new MatrizComplex(mat1.getFilas(), mat1.getColumnas());
 			rtaComplex = resMatrix(mat1, mat2);
-			return NorMatriz(rtaComplex);
+			return norMatriz(rtaComplex);
 		} else {
 			System.out.println("Matrices de dimensiones diferentes");
 			return 0;
@@ -139,7 +139,7 @@ public class MatrixCalculator {
 			MatrizComplex matfinal = new MatrizComplex(mat1.getFilas(), mat1.getColumnas());
 			Complex rtaComplex = new Complex(0, 0);
 			for (int i = 0; i < mat1.getFilas(); i++) {
-				for (int j = 0; j <= mat1.getColumnas(); j++) {
+				for (int j = 0; j < mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
 					matactual.addComplex(i, j, rtaComplex.conComplex(mat1.getPosition(i, j)));
 					matfinal.addComplex(j, i, matactual.getPosition(i, j));
 				}
@@ -156,7 +156,7 @@ public class MatrixCalculator {
 			flag = false;
 		} else {
 			for (int i = 0; i < mat1.getFilas(); i++) {
-				for (int j = 0; j <= mat1.getColumnas(); j++) {
+				for (int j = 0; j < mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
 					if (!(mat1.getPosition(i, j).equalComplex(mat2.getPosition(i, j)))) {
 						flag = false;
 					}
@@ -173,12 +173,12 @@ public class MatrixCalculator {
 		int rowa = mat1.getFilas();
 		int colb = mat2.getColumnas();
 		int rowb = mat2.getFilas();
-		MatrizComplex matFinal = new MatrizComplex((mat1.getFilas() * mat1.getFilas()),
-				((mat1.getColumnas() * mat1.getColumnas())));
+		MatrizComplex matFinal = new MatrizComplex((rowa * rowb), (cola * colb));
 		for (int i = 0; i < rowa; i++) {
-			for (int k = 0; k <= rowb; k++) {
+			for (int k = 0; k < rowb; k++) {
 				for (int j = 0; j < cola; j++) {
 					for (int l = 0; l < colb; l++) {
+						System.out.println(mat1.getPosition(i, j).mulComplex(mat2.getPosition(k, l)));
 						matFinal.addComplex((i + l + 1), (j + k + 1),
 								mat1.getPosition(i, j).mulComplex(mat2.getPosition(k, l)));
 					}
