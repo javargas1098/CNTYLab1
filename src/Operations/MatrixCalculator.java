@@ -7,7 +7,7 @@ public class MatrixCalculator {
 			MatrizComplex mathfinal = new MatrizComplex(mat1.getFilas(), mat1.getColumnas());
 			Complex rtaComplex;
 			for (int i = 0; i < mat1.getFilas(); i++) {
-				for (int j = 0; j <= mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
+				for (int j = 0; j < mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
 					rtaComplex = mat1.getPosition(i, j).sumComplex(mat2.getPosition(i, j));
 					mathfinal.addComplex(i, j, rtaComplex);
 
@@ -28,7 +28,7 @@ public class MatrixCalculator {
 		MatrizComplex mathfinal = new MatrizComplex(mat1.getFilas(), mat1.getColumnas());
 		Complex rtaComplex;
 		for (int i = 0; i < mat1.getFilas(); i++) {
-			for (int j = 0; j <= mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
+			for (int j = 0; j <= mat1.getColumnas() ; j++) {
 				rtaComplex = mat1.getPosition(i, j).mulComplex(new Complex(-1, 0));
 				mathfinal.addComplex(i, j, rtaComplex);
 
@@ -88,7 +88,7 @@ public class MatrixCalculator {
 		if (mat1.getColumnas() == mat2.getFilas()) {
 			MatrizComplex matfinal = new MatrizComplex(mat1.getFilas(), mat2.getColumnas());
 			for (int i = 0; i < mat1.getFilas(); i++) {
-				for (int j = 0; j <= mat2.getColumnas(); j++) {
+				for (int j = 0; j < mat2.getColumnas(); j++) {
 					Complex suma = new Complex(0, 0);
 					for (int k = 0; k < mat1.getColumnas(); k++) {
 						suma = suma.sumComplex(mat1.getPosition(i, k).mulComplex(mat2.getPosition(k, j)));

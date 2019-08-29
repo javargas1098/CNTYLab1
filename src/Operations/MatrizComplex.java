@@ -1,6 +1,36 @@
 package Operations;
 
+import java.util.Arrays;
+
 public class MatrizComplex {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + columnas;
+		result = prime * result + filas;
+		result = prime * result + Arrays.deepHashCode(matriz);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MatrizComplex other = (MatrizComplex) obj;
+		if (columnas != other.columnas)
+			return false;
+		if (filas != other.filas)
+			return false;
+		if (!Arrays.deepEquals(matriz, other.matriz))
+			return false;
+		return true;
+	}
+
 	private int filas, columnas;
 	Complex[][] matriz;
 
