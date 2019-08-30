@@ -15,6 +15,12 @@ Solo de debe descargar el proyecto de github
 ## Running the tests
 
  para realizar las pruebas del proyecto descarguelo e importelo en su IDE, luego ejecute las clases que se encuentran en el paquete TEST donde ya ahi casos definidos.
+  `Test Classes`
+ - MatrixTest
+	 - foto
+ - CalculatorTEst
+	 - foto
+
 
 
 ## Built With
