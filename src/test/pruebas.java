@@ -9,10 +9,10 @@ import Operations.MatrixCalculator;
 public class pruebas {
 	public static void main(String[] args) {
 		
-		Complex c1 = new Complex(2,2);
-		Complex c2 = new Complex(2,0);
-		Complex c3 = new Complex(1, -4);
-		Complex c4 = new Complex(0, 0);
+		Complex c1 = new Complex(1,0);
+		Complex c2 = new Complex(0,0);
+		Complex c3 = new Complex(0, 0);
+		Complex c4 = new Complex(0, 1);
 
 		
 		Complex c7 = new Complex(3,0);
@@ -42,7 +42,8 @@ public class pruebas {
 		
 		//System.out.println(c4.setModule());
 		//System.out.println(c3.setPolartoCartesian(6.4, 51).toString());
-		System.out.println(MatrixCalculator.tenMatriz(mat1,mat2).toString());
+		//System.out.println(MatrixCalculator.tenMatriz(mat1,mat2).toString());
+		System.out.println(MatrixCalculator.isUnitari(mat1));
 		//System.out.println(c1.divComplex(c2).toString());
 		//System.out.println(c1.mulComplex(c2).toString());
 	}

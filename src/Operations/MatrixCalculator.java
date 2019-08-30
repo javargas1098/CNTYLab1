@@ -105,15 +105,19 @@ public class MatrixCalculator {
 		}
 	}
 
+	public static MatrizComplex innerMatriz(MatrizComplex mat1) {
+		MatrizComplex refeComplex = adjMatrix(mat1);
+		MatrizComplex matfinal = mulMatriz(refeComplex, mat1);
+		return matfinal;
+	}
+
 	public static double norMatriz(MatrizComplex mat1) {
 		double normaMayor = 0;
-		for (int i = 0; i < mat1.getFilas(); i++) {
-			double normaActual = 0;
-			for (int j = 0; j < mat1.getColumnas() || mat1.getColumnas() == 1; j++) {
-				normaActual = +mat1.getPosition(i, j).setModule();
-			}
-			if (normaActual > normaMayor) {
-				normaMayor = normaActual;
+		MatrizComplex matfinal = innerMatriz(mat1);
+
+		for (int i = 0; i < matfinal.getFilas(); i++) {
+			for (int j = 0; j < matfinal.getColumnas() || matfinal.getColumnas() == 1; j++) {
+				normaMayor += Math.sqrt(matfinal.getPosition(i, j).setNosqrtModule());
 
 			}
 		}
@@ -173,22 +177,50 @@ public class MatrixCalculator {
 		int rowa = mat1.getFilas();
 		int colb = mat2.getColumnas();
 		int rowb = mat2.getFilas();
+		int contFilas = 0;
+		int contColumnas = 0;
 		MatrizComplex matFinal = new MatrizComplex((rowa * rowb), (cola * colb));
 		for (int i = 0; i < rowa; i++) {
-			for (int k = 0; k < rowb; k++) {
-				for (int j = 0; j < cola; j++) {
-					for (int l = 0; l < colb; l++) {
-						System.out.println(mat1.getPosition(i, j).mulComplex(mat2.getPosition(k, l)));
-						matFinal.addComplex((i + l + 1), (j + k + 1),
-								mat1.getPosition(i, j).mulComplex(mat2.getPosition(k, l)));
-					}
-
-				}
+			for (int k = 0; k < cola; k++) {
+				addpos(mat1.getPosition(i, k), contFilas, contColumnas, matFinal, mat2);
+				contColumnas += mat2.getColumnas();
 
 			}
+			contColumnas = 0;
+			contFilas += mat2.getFilas();
 		}
 		return matFinal;
 
+	}
+
+	private static void addpos(Complex pos1, int contfilas, int contColumnas, MatrizComplex matFinal,
+			MatrizComplex mat2) {
+		for (int j = 0; j < mat2.getFilas(); j++) {
+			for (int l = 0; l < mat2.getColumnas(); l++) {
+				matFinal.addComplex(j + contfilas, l + contColumnas, pos1.mulComplex(mat2.getPosition(j, l)));
+
+			}
+		}
+
+	}
+
+	public static boolean isUnitari(MatrizComplex mat1) {
+		MatrizComplex matadj = adjMatrix(mat1);
+		MatrizComplex matFinal = mulMatriz(matadj, mat1);
+		MatrizComplex matUnitari = new MatrizComplex(matFinal.getFilas(), matFinal.getColumnas());
+		for (int i = 0; i < matUnitari.getFilas(); i++) {
+			for (int j = 0; j < matUnitari.getColumnas(); j++) {
+				if (i == j) {
+					matUnitari.addComplex(i, j, new Complex(1, 0));
+				} else {
+					matUnitari.addComplex(i, j, new Complex(0, 0));
+				}
+			}
+		}
+		
+		//System.out.println(matUnitari);
+		//System.out.println(matFinal);
+		return equalMatiz(matFinal, matUnitari);
 	}
 
 }

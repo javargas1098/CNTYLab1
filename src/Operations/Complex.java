@@ -3,6 +3,9 @@ package Operations;
 public class Complex {
 	double x;
 	double y;
+	double module;
+	double fase;
+	double module2;
 	
 	@Override
 	public int hashCode() {
@@ -31,8 +34,7 @@ public class Complex {
 			return false;
 		return true;
 	}
-	double module;
-	double fase;
+	
 
 	public double getFase() {
 		return fase;
@@ -62,9 +64,23 @@ public class Complex {
 		this.x = real;
 		this.y = y;
 		this.setModule();
+		this.setNosqrtModule();
 		this.setFase();
 
 	}
+	public double getModule2() {
+		return module2;
+	}
+
+	public void setModule2(double module2) {
+		this.module2 = module2;
+	}
+
+	public double setNosqrtModule() {
+		// TODO Auto-generated method stub
+		return this.module2 = Math.pow(x, 2) + Math.pow(y, 2);
+	}
+
 	/**
 	 * fase de un copmlejo
 	 */
