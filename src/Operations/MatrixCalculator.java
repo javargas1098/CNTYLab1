@@ -83,6 +83,14 @@ public class MatrixCalculator {
 		return trasMatrix(conMatrix(mat1));
 
 	}
+	public static MatrizComplex actionMatrix(MatrizComplex mat1, MatrizComplex mat2) {
+	        if (mat1.getColumnas() == mat1.getColumnas())
+	            return mulMatriz(mat1, mat2);
+	        else {
+	            System.out.println("La matriz debe ser cuadrada");
+	            return null;
+	        }
+	    }
 
 	public static MatrizComplex mulMatriz(MatrizComplex mat1, MatrizComplex mat2) {
 		if (mat1.getColumnas() == mat2.getFilas()) {
